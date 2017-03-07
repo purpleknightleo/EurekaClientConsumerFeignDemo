@@ -21,4 +21,11 @@ public class ConsumerController {
     public Integer add() {
         return client.add(7, 3);
     }
+
+    @RequestMapping(value = "/feign/sub", method = RequestMethod.GET)
+    public Integer sub() {
+        String json = "{\"a\" : 8, \"b\" : 24}";
+        return client.sub(json);
+    }
+
 }
