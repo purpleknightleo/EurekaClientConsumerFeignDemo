@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 绑定该接口对应compute-service远程服务，利用Feign做负载均衡
+ * fallback填写熔断器的实现类
  *
  * Created by hzlifan on 2017/3/7.
  */
-@FeignClient("compute-service")
+@FeignClient(name = "compute-service", fallback = ComputeClientHystrix.class)
 public interface ComputeClient {
 
     /**
